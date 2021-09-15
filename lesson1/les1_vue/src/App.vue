@@ -4,8 +4,8 @@
     <div class="display">
       <h2>Calculator</h2>
       
-       <input v-model="operand1"/>
-       <input v-model="operand2"/>
+       <input v-model.number="operand1">
+       <input v-model.number="operand2">
        = {{result}}
      </div>
 
@@ -33,7 +33,7 @@ export default {
    },
    methods: {
      plusMethod() {
-       this.result = +this.operand1 + +this.operand2
+       this.result = this.operand1 + this.operand2
      },
      minusMethod(){
        this.result = this.operand1 - this.operand2

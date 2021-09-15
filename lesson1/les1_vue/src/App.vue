@@ -33,7 +33,7 @@ export default {
    },
    methods: {
      plusMethod() {
-       this.result = this.operand1 + this.operand2
+       this.result = +this.operand1 + +this.operand2
      },
      minusMethod(){
        this.result = this.operand1 - this.operand2

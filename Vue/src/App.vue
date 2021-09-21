@@ -1,23 +1,27 @@
 <template>
 
   <div id="app">
-      <h2>Calculator</h2>
+    <h2>Calculator</h2>
       
-      <input  v-model.number="number">
-     
-      <input  v-model.number="number">
-      <p class="error" v-if="error">ERROR</p>
-      <h2 class="text">= {{result}}</h2>
-      <button v-for="item in items" :key="item.value" @click="calcHandler(item.value)">
+    <input  v-model.number="number">
+    <input  v-model.number="number">
+
+    <p class="error" v-if="error">ERROR</p>
+    <h2 class="text">= {{result}}</h2>
+
+    <button class="actions" v-for="item in items" :key="item.value" @click="calcHandler(item.value)">
       {{ item.name }}
-      </button>
+    </button>
+
     <div class="checkbox">
-      <input type="checkbox" id="checkbox" v-model="checked">
+      <input type="checkbox" id="checkbox">
       <label for="checkbox">Отобразить экранную клавиатуру</label>
     </div> 
-      <button v-for="number in numbers" :key="number.id" @click="keyBoard(number.id)">
+    
+    <button class="numbers" v-for="number in numbers" :key="number.id" @click="keyBoard(number.id)">
       {{ number.value}}
-      </button>
+    </button>
+
     <div class="radio">
     <input type="radio" id="one" value="operand1" v-model="picked">
     <label for="one">operand1</label>
@@ -41,7 +45,8 @@ export default {
            result: 0,
            str: null,
            error: false,
-           checked: false,
+           keyboardVisibl: false,
+           cheked: false,
            picked: false,
            items: [
             {
@@ -159,9 +164,15 @@ export default {
        this.result = this.operand1 % this.operand2
      },
      keyBoard(number) {
+       this.number = number.value
        
      }
-   }
+   },
+//   //  computed: {
+//   //       showKyeboard() {
+//   //           return this.keyboardVisibl ? 'Hide keyboard' : 'Show keyboard'
+//   //       },
+// }
 }
 
 </script>
@@ -174,6 +185,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.actions {
+  border: rgb(128, 126, 126);
+  padding: 10px;
+  color: rgb(90, 92, 92);
+}
+.numbers {
+  border: rgb(128, 126, 126);
+  padding: 10px;
+  color: rgb(90, 92, 92);
 }
 .error {
   color: red;

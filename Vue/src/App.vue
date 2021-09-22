@@ -3,8 +3,8 @@
   <div id="app">
     <h2>Calculator</h2>
       
-    <input  v-model.number="number">
-    <input  v-model.number="number">
+    <input  v-model.number="operand1">
+    <input  v-model.number="operand2">
 
     <p class="error" v-if="error">ERROR</p>
     <h2 class="text">= {{result}}</h2>
@@ -14,12 +14,13 @@
     </button>
 
     <div class="checkbox">
-      <input type="checkbox" id="checkbox">
+      <input type="checkbox" id="checkbox" v-model="keyVisible">
       <label for="checkbox">Отобразить экранную клавиатуру</label>
     </div> 
     
-    <button class="numbers" v-for="number in numbers" :key="number.id" @click="keyBoard(number.id)">
-      {{ number.value}}
+    <div v-show="keyVisible">
+    <button class="numbers" v-for="number in numbers" :key="number" @click="keyBoard(number)">
+      {{ number }}
     </button>
 
     <div class="radio">
@@ -28,7 +29,7 @@
     <input type="radio" id="two" value="operand2" v-model="picked">
     <label for="two">operand2</label>  
     </div>
-
+    </div>  
        
 
      
@@ -45,9 +46,9 @@ export default {
            result: 0,
            str: null,
            error: false,
-           keyboardVisibl: false,
+           keyVisible: false,
            cheked: false,
-           picked: false,
+           picked: 'operand1',
            items: [
             {
              name: 'plus',
@@ -74,48 +75,7 @@ export default {
              value: '%'
             },
            ],
-           numbers: [
-             {
-              id: 0,
-              value: 0
-             },
-             {
-              id: 1,
-              value: 1
-             },
-             {
-              id: 2,
-              value: 2
-             },
-             {
-              id: 3,
-              value: 3
-             },
-             {
-              id: 4,
-              value: 4
-             },
-             {
-              id: 5,
-              value: 5
-             },
-             {
-              id: 6,
-              value: 6
-             },
-             {
-              id: 7,
-              value: 7
-             },
-             {
-              id: 8,
-              value: 8
-             },
-             {
-              id: 9,
-              value: 9
-             },
-           ]
+           numbers: [0,1,2,3,4,5,6,7,8,9],
    }),
    methods: {
      calcHandler (name){
@@ -164,15 +124,15 @@ export default {
        this.result = this.operand1 % this.operand2
      },
      keyBoard(number) {
-       this.number = number.value
-       
-     }
+       if (this.picked === 'operand1'){
+       this.operand1 = number
+       }else {
+         this.operand2 = number
+       }
+     },
+
+     
    },
-//   //  computed: {
-//   //       showKyeboard() {
-//   //           return this.keyboardVisibl ? 'Hide keyboard' : 'Show keyboard'
-//   //       },
-// }
 }
 
 </script>

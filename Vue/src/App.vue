@@ -1,10 +1,10 @@
 <template>
 
   <div id="app">
-    <h2>Calculator</h2>
+    <h2 class="text">Calculator</h2>
       
-    <input  v-model.number="operand1">
-    <input  v-model.number="operand2">
+    <input class="inputarea" v-model.number="operand1">
+    <input class="inputarea" v-model.number="operand2">
 
     <p class="error" v-if="error">ERROR</p>
     <h2 class="text">= {{result}}</h2>
@@ -15,13 +15,14 @@
 
     <div class="checkbox">
       <input type="checkbox" id="checkbox" v-model="keyVisible">
-      <label for="checkbox">Отобразить экранную клавиатуру</label>
+      <label class="text" for="checkbox">Отобразить экранную клавиатуру</label>
     </div> 
     
     <div v-show="keyVisible">
     <button class="numbers" v-for="number in numbers" :key="number" @click="keyBoard(number)">
       {{ number }}
     </button>
+    <button class="numbers" @click="deleteNumber()" > &larr; </button>
 
     <div class="radio">
     <input type="radio" id="one" value="operand1" v-model="picked">
@@ -130,9 +131,14 @@ export default {
          this.operand2 = number
        }
      },
-
-     
+     deleteNumber(){
+        if (this.picked === 'operand1'){
+       this.operand1 = 0
+     }else {
+         this.operand2 = 0
+       }
    },
+   }
 }
 
 </script>
@@ -146,15 +152,27 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+.inputarea {
+  border-color: rgb(128, 126, 126);
+  padding: 8px;
+  margin-right: 3px;
+}
 .actions {
-  border: rgb(128, 126, 126);
+  border: 0,3px rgb(128, 126, 126);
   padding: 10px;
-  color: rgb(90, 92, 92);
+  color: rgb(90, 90, 90);
+}
+.actions:hover {
+  padding: 10px;
+  border: rgb(200, 241, 153);
 }
 .numbers {
   border: rgb(128, 126, 126);
   padding: 10px;
-  color: rgb(90, 92, 92);
+  color: rgb(90, 90, 90);
+}
+.text {
+color: rgb(90, 90, 90);
 }
 .error {
   color: red;

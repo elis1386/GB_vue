@@ -138,7 +138,6 @@ export default {
          this.operand2 = 0
        }
    },
-   }
 }
 
 </script>

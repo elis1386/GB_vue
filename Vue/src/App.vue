@@ -3,7 +3,7 @@
   <Calc v-if="0"/>
 
 <TaskList/>
-
+<PaymentForm @addNewPayment="addNewPayment"/>
 
 
 
@@ -23,7 +23,12 @@ export default {
    },
    data () {
      return
-   }
+   },
+   methods: {
+     addNewPayment(data) {
+       this.paymentsList = [...this.paymentsList,data]
+     }
+   },
 }
 </script>
 

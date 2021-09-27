@@ -2,7 +2,7 @@
     <div>
 
   <PaymentList :list="responseData" />
-  <PaymentForm/>
+  <PaymentForm />
  
 
 

@@ -1,6 +1,7 @@
 <template>
 <div>
-    <div v-for="item in list " :key="item.date"> 
+<div v-for="item in list " :key="item.data"> 
+   <div class="container">
     <table class="table">
          <thead>
              <tr>
@@ -32,7 +33,7 @@
   </tbody>
 </table>
 
-
+    </div>
   </div>
 </div>
 </template>

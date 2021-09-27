@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container" >
         <input class="input-group mb-3" type="text" v-model="description" placeholder="payment description">
         <input class="input-group mb-3" type="text" v-model.number="amount" placeholder="payment amount">
         <input class="input-group mb-3" type="text" v-model="date" placeholder="payment date">
-        <button type="button" class="btn btn-success mb-3" @click="onSaveClick"> + Add new payment</button>
+        <button type="button" class="btn btn-success mb-3" @click="addNewPayment"> + Add new payment</button>
         </div>
     </div>
 </template>
@@ -17,23 +17,22 @@ export default {
             description: '',
             amount: 0,
             date: '',
+            formVisibl: false,
         }
     },
-    computed: {
-        getCurrentDate() {
-            const today = new Date();
-            const d = today.getDate()
-            const m = today.getMonth()
-            const y = today.getFullYear()
-            return `${d}.${m}.${y}`
-        }
+    props: {
+       list: {
+           type: Array,
+           default: () => []
+       }
     },
     methods: {
-        onSaveClick(){
+        addNewPayment(){
             const data = {
+                id: this.id,
                 description: this.description,
                 amount: this.amount,
-                date: this.date || this.getCurrentDate,
+                date: this.date 
             }
             this.$emit('addNewPayment',data)
         }

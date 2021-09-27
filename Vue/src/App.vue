@@ -3,7 +3,7 @@
   <Calc v-if="0"/>
 
 <TaskList/>
-<PaymentForm @addNewPayment="addNewPayment"/>
+
 
 
 

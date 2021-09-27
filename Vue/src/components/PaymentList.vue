@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="container">
-
+   
     <table class="table">
          <thead>
              <tr>
@@ -34,7 +34,7 @@ export default {
             type: Array,
             default: () => []
         }
-    }
+    },
 }
 </script>
 

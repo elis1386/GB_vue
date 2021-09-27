@@ -2,7 +2,7 @@
     <div>
 
   <PaymentList :list="responseData" />
-  <PaymentForm />
+  <!-- <PaymentForm /> -->
  
 
 
@@ -25,17 +25,20 @@ export default {
     data() {
         return {
             responseData: [ 
-            {
+            {   
+                id: 1,
                 data:'28.03.2020',
                 category: 'Food',
                 value: 169,
             },
             {
+                id: 2,
                 data:'24.03.2020',
                 category: 'Transport',
                 value: 360,
             },
             {
+                id: 3,
                 data:'24.03.2020',
                 category: 'Food',
                 value: 532,

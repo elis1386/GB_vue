@@ -4,7 +4,7 @@
         <input class="input-group mb-3" type="text" v-model="description" placeholder="payment description">
         <input class="input-group mb-3" type="text" v-model.number="amount" placeholder="payment amount">
         <input class="input-group mb-3" type="text" v-model="date" placeholder="payment date">
-        <button type="button" class="btn btn-success " @click="onSaveClick">Save</button>
+        <button type="button" class="btn btn-success mb-3" @click="onSaveClick"> + Add new payment</button>
         </div>
     </div>
 </template>
@@ -42,8 +42,16 @@ export default {
 </script>
 
 <style scoped>
+.container {
+    display: flex;
+    flex-direction: column;
+}
 .btn{
-    padding: 5px 30px;
+    padding: 10px;
     width: 30%;
+}
+.input-group {
+    width: 30%;
+    padding: 10px;
 }
 </style>

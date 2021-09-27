@@ -1,7 +1,7 @@
 <template>
 <div>
-<div v-for="item in list " :key="item.data"> 
-   <div class="container">
+<div class="container">
+
     <table class="table">
          <thead>
              <tr>
@@ -12,30 +12,17 @@
              </tr>
         </thead>
             <tbody>
-                 <tr>
-                  <th scope="row">1</th>
-                  <td>{{item.data}}</td>
-                  <td>{{item.category}}</td>
-                  <td>{{item.value}}</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>{{item.data}}</td>
-                  <td>{{item.category}}</td>
-                  <td>{{item.value}}</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
+                 <tr v-for="item in list " :key="item.id">
+                  <th scope="row">{{item.id}}</th>
                   <td>{{item.data}}</td>
                   <td>{{item.category}}</td>
                   <td>{{item.value}}</td>
                 </tr>
   </tbody>
 </table>
-
     </div>
   </div>
-</div>
+
 </template>
 
 

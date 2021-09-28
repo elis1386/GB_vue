@@ -1,10 +1,11 @@
 <template>
     <div>
-    <div class="d-grid gap-2 d-md-block">
-       <button type="button" class="btn btn-success mb-3" @click="getForm"> + Add new payment</button>
+    <div class="container ">
+    <div class="d-grid gap-2 col-2">
+       <button type="button" class="btn btn-success mb-3" v-show="!formVisibl" @click="getForm"> + Add new payment</button>
        <PaymentForm :list="responseData" v-show="formVisibl" @getPayment="getPayment" />
     </div>
-
+</div>
   <PaymentList :list="responseData" />
 
   
@@ -35,39 +36,39 @@ export default {
             responseData: [ 
             {   
                 id: 1,
-                data:'28.03.2020',
-                category: 'Food',
-                value: 169,
+                date:'28.03.2020',
+                description: 'Food',
+                amount: 169,
             },
             {
                 id: 2,
-                data:'24.03.2020',
-                category: 'Transport',
-                value: 360,
+                date:'24.03.2020',
+                description: 'Transport',
+                amount: 360,
             },
             {
                 id: 3,
-                data:'24.03.2020',
-                category: 'Food',
-                value: 532,
+                date:'24.03.2020',
+                description: 'Food',
+                amount: 532,
             },
             {
                 id: 4,
-                data:'21.03.2020',
-                category: 'Clother',
-                value: 12000,
+                date:'21.03.2020',
+                description: 'Clother',
+                amount: 12000,
             },
             {
                 id: 5,
-                data:'19.03.2020',
-                category: 'Sport',
-                value: 6000,
+                date:'19.03.2020',
+                description: 'Sport',
+                amount: 6000,
             },
             {
                 id: 6,
-                data:'18.03.2020',
-                category: 'Food',
-                value: 540,
+                date:'18.03.2020',
+                description: 'Food',
+                amount: 540,
             },
             ],
             formVisibl: false,
@@ -77,8 +78,8 @@ export default {
         getForm() {
             this.formVisibl= !this.formVisibl
         },
-        getPayment(addData) {
-            this.responseData = [...this.responseData,addData]
+        getPayment(data) {
+            this.responseData = [...this.responseData,data]
         }
     }
 }
@@ -87,3 +88,5 @@ export default {
 <style scoped>
 
 </style>
+
+

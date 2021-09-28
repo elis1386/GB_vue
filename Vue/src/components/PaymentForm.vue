@@ -4,7 +4,7 @@
         <input class="input-group mb-3" type="text" v-model="description" placeholder="payment description">
         <input class="input-group mb-3" type="text" v-model.number="amount" placeholder="payment amount">
         <input class="input-group mb-3" type="text" v-model="date" placeholder="payment date">
-        <button type="button" class="btn btn-success mb-3" @click="addNewPayment"> + Add new payment</button>
+        <button type="button" class="btn btn-primary mb-3" @click="addNewPayment"> + Add new </button>
         </div>
     </div>
 </template>
@@ -15,7 +15,7 @@ export default {
     data(){
         return {
             description: '',
-            amount: 0,
+            amount: null,
             date: '',
             formVisibl: false,
         }
@@ -27,17 +27,24 @@ export default {
        }
     },
     methods: {
-        addNewPayment(){
+        addNewPayment() {
+            let newId = 0
+            this.list.map(function(element){
+                if (element.id > newId) newId = element.id;
+            });
+            if ((this.amount !== 0 ) && (this.date !== "") && (this.description !=="")){
             const data = {
-                id: this.id,
+                id: newId + 1,
                 description: this.description,
                 amount: this.amount,
-                date: this.date 
+                date: this.date,
+            }        
+            this.$emit('getPayment', data);
             }
-            this.$emit('addNewPayment',data)
         }
     }
 }
+
 </script>
 
 <style scoped>
@@ -47,10 +54,49 @@ export default {
 }
 .btn{
     padding: 10px;
-    width: 30%;
+    width: 100%;
 }
 .input-group {
-    width: 30%;
+    width: 100%;
     padding: 10px;
 }
 </style>
+
+
+
+
+
+{
+    //         fetch('http://localhost:8080/', {
+    //             method: 'POST',
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify({
+    //                 id: this.id,
+    //                 description: this.description,
+    //                 amount: this.amount,
+    //                 date: this.date 
+    //         })
+    //         .then(response => {
+    //             if (!response.ok) {
+    //             throw new Error(response.statusText);
+    //         }
+    //             return response.json();
+    //         })
+    //         .catch(error => {
+    //         console.log(error)
+    //     })
+    //         this.$emit('addNewPayment',data)
+    //     }
+    // }
+
+ // let addId = 0
+            // this.list.map(function(element){
+            //     if (element.id > addId) addId = element.id;
+            // })
+            // if ((this.value !== 0 ) && (this.data !== "") && (this.category !=="")){
+            // const data = {
+            //     id: addId + 1,
+            //     description: this.description,
+            //     amount: this.amount,
+            //     date: this.date 
+            // }

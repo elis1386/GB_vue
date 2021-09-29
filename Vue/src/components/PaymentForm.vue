@@ -66,37 +66,3 @@ export default {
 
 
 
-{
-    //         fetch('http://localhost:8080/', {
-    //             method: 'POST',
-    //             headers: { "Content-Type": "application/json" },
-    //             body: JSON.stringify({
-    //                 id: this.id,
-    //                 description: this.description,
-    //                 amount: this.amount,
-    //                 date: this.date 
-    //         })
-    //         .then(response => {
-    //             if (!response.ok) {
-    //             throw new Error(response.statusText);
-    //         }
-    //             return response.json();
-    //         })
-    //         .catch(error => {
-    //         console.log(error)
-    //     })
-    //         this.$emit('addNewPayment',data)
-    //     }
-    // }
-
- // let addId = 0
-            // this.list.map(function(element){
-            //     if (element.id > addId) addId = element.id;
-            // })
-            // if ((this.value !== 0 ) && (this.data !== "") && (this.category !=="")){
-            // const data = {
-            //     id: addId + 1,
-            //     description: this.description,
-            //     amount: this.amount,
-            //     date: this.date 
-            // }

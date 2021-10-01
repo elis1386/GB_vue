@@ -22,8 +22,11 @@ export default {
      Calc
    },
    data () {
-     return
+     return {
+       
+     }
    },
+
    methods: {
      addNewPayment(data) {
        this.paymentsList = [...this.paymentsList,data]

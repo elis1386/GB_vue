@@ -29,12 +29,7 @@
 <script>
 export default {
     name: 'PaymentList',
-    props: {
-        list: {
-            type: Array,
-            default: () => []
-        }
-    },
+    props: ['list']
 }
 </script>
 

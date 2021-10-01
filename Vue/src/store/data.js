@@ -11,7 +11,7 @@ const actions = {
 }
 const mutations = {
     setResponseData(state, payload){
-        state.list = payload
+        state.list.push()
     }
 }
 

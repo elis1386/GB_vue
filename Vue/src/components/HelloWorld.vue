@@ -1,4 +1,4 @@
-<template>
+<template v-if="0">
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>

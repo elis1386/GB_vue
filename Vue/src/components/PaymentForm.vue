@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex'
 export default {
     name: 'PaymentForm',
     props: ['idCount'],
@@ -21,6 +22,7 @@ export default {
         }
     },
     computed:{
+        ...mapState(['newList2']),
         getCurrentDate(){
             const today = new Date()
             const d = today.getDate()
@@ -30,13 +32,16 @@ export default {
             }
         },
     methods: {
+         ...mapMutations(['addDataToList', 'addDataToList2']),
         addNewPayment() {
             const data = {
-            id: this.idCount + 1,
+            id: this.newList2.lenght + 1,
             amount: this.amount,
             description: this.description,
             date: this.date || this.getCurrentDate,
-            }        
+            }   
+            this.addDataToList(data)
+            this.addDataToList2(data)    
             this.$emit('getPayment', data);
             
             }

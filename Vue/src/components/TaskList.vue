@@ -17,7 +17,7 @@
 import PaymentList from './PaymentList.vue'
 import PaymentForm from './PaymentForm'
 import Pagination from './Pagination.vue'
-import {mapActions} from 'vuex' 
+import {mapActions, mapState, mapMutations} from 'vuex' 
 
 export default {
     name: 'TaskList',
@@ -88,13 +88,16 @@ export default {
             ],
     }),
     computed: {
+        ...mapState(['newList', 'newList2'])
   },
     created () {
-    this.activeList = this.list.slice(0, 5)
-    this.getResponse()
+        this.fetchData(this.page)
+    // this.activeList = this.list.slice(0, 5)
+    // this.getResponse()
   },
     methods: {
-        ...mapActions('data',['getResponse']),
+       ...mapActions(['fetchData']),
+       ...mapMutations(['setResponseDataNewList2']),
         getForm() {
             this.formVisible= !this.formVisible
         },
@@ -102,10 +105,11 @@ export default {
             this.list = [...this.list,data]
             this.formVisible = false;
         },
+        
         choosePageHandler (page) {
             const startNum = page * this.count
             const lastNum = startNum + this.count
-            this.activeList = this.list.slice(startNum, lastNum)
+            this.setformDataNewList2(this.newList2.slice(startNum, lastNum))
     }
     },
     

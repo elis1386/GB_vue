@@ -1,27 +1,41 @@
 <template>
 <nav class="mt-5">
-  <ul class="pagination justify-content-center">
-    <a class="page-link" href="#" tabindex="-1">Previous</a>
-    <div class="page-item" v-for="(item, index) in pages" :key="item" @click="choosePage(index)">
-    <a class="page-link" href="#"> {{ item }} </a>
+    <template>
+        <ul class="pagination justify-content-center">
+         <a class="page-link" href="#" tabindex="-1">Previous</a>
+         <div class="page-item" v-for="(item, index) in pages" :key="item" @click="choosePage(index)">
+            <a class="page-link" href="#"> {{ item }} </a>
+         </div>
+            <a class="page-link" href="#">Next</a>
+        </ul>
+    </template>
+    <div @click="clickHandler(index)" v-for="(item,index) in makeArray" :key="index">
+      {{ index }}
     </div>
-    <a class="page-link" href="#">Next</a>
-  </ul>
 </nav>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'Pagination',
   props: ['list'],
   computed: {
+    ...mapState(['newList', 'newList2']),
+    makeArray () {
+      return this.newList
+    },
     pages () {
-      return Math.ceil(this.list.length / 5)
+      return this.newList2.length ? Math.ceil(this.newList2.length / 5) : 1
     }
   },
   methods: {
+       ...mapMutations(['newList']),
     choosePage (page) {
       this.$emit('choose-page', page)
+    },
+    clickHandler (page) {
+      this.setformDataNewList(this.newList[page])
     }
   }
 }

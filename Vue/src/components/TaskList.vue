@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="container ">
+    <div class="container mt-5">
         <div class="d-grid gap-2 col-2">
             <button type="button" class="btn btn-success mb-3" v-show="!formVisible" @click="getForm"> + Add new payment</button>
             <PaymentForm :id-count="list.length" v-show="formVisible" @getPayment="getPayment" />

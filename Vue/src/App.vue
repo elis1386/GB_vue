@@ -1,14 +1,9 @@
 <template>
 <div id="app">
+
   <Calc v-if="0"/>
-  
   <TaskList v-if="0"/>
   <Router/>
-
-
-
-
-
 
 
 </div>
@@ -32,6 +27,9 @@ export default {
      addNewPayment(data) {
        this.paymentsList = [...this.paymentsList,data]
         },
+   },
+   created () {
+  this.$router.push({ name: 'TaskList' })
    },
 }
 </script>

@@ -14,7 +14,7 @@
     </button>
 
     <div class="checkbox">
-      <input type="checkbox" id="checkbox" v-model="keyVisible">
+      <input type="checkbox" id="checkbox" v-model="keyVisible">&nbsp;
       <label class="text" for="checkbox">Отобразить экранную клавиатуру</label>
     </div> 
     

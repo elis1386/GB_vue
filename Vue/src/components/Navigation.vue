@@ -4,6 +4,12 @@
             <router-link to="/taskList"><a class="btn btn-outline-secondary btn-space " href="#tasklist" role="button">TaskList</a></router-link>
             <router-link to="/calc"><a class="btn btn-outline-secondary btn-space" href="#calc" role="button">Calculator</a></router-link>
             <router-link to="/404"><a class="btn btn-outline-secondary btn-space" href="#404">Error</a></router-link>
+
+            <div class="fast-add" v-if="0">
+                <a class="btn  btn-space" @click="addFood">Food for $200</a>
+                <a class="btn  btn-space" @click="addTransport">Transport for $50 </a>
+                <a class="btn  btn-space" @click="addEntertaiment">Entertament for $2000</a>
+            </div>
             <router-view />
         </div>
         <TaskList v-if="page === 'tasklist' "/>
@@ -31,6 +37,51 @@ export default {
         ErrorPage
     },
     methods: {
+        addFood() {
+      this.$router.push({
+        name: 'PaymentFood',
+        query: {
+          amount: 200,          
+        }
+      }).catch(error => {
+          if (
+            error.name !== 'NavigationDuplicated' &&
+            !error.message.includes('Avoided redundant navigation to current location')
+          ) {
+            console.log(error)
+          }
+        })
+    },
+    addTransport() {
+      this.$router.push({
+        name: 'PaymentTransport',
+        query: {
+          amount: 50,          
+        }
+      }).catch(error => {
+          if (
+            error.name !== 'NavigationDuplicated' &&
+            !error.message.includes('Avoided redundant navigation to current location')
+          ) {
+            console.log(error)
+          }
+        })
+    },
+    addEntertaiment() {
+      this.$router.push({
+        name: 'PaymentEntertaiment',
+        query: {
+          amount: 2000,          
+        }
+      }).catch(error => {
+          if (
+            error.name !== 'NavigationDuplicated' &&
+            !error.message.includes('Avoided redundant navigation to current location')
+          ) {
+            console.log(error)
+          }
+        })
+    },        
 
     }
 }
@@ -41,4 +92,5 @@ export default {
 .btn-space {
     margin-right: 10px;
 }
+
 </style>

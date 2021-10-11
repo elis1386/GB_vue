@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import PaymentList from './PaymentList.vue'
+import PaymentForm from './PaymentForm'
 export default {
     name: 'EasyPayment',
     components: {

@@ -30,7 +30,7 @@ export default {
     }
   },
   methods: {
-       ...mapMutations(['newList']),
+       ...mapMutations(['setformDataNewList']),
     choosePage (page) {
       this.$emit('choose-page', page)
     },

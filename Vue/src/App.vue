@@ -11,12 +11,14 @@
 
 <script>
 import Calc from './components/Calc.vue'
+import TaskList from './components/TaskList.vue'
 import Router from './components/Router.vue'
 
 export default {
    name: 'Calculator',
    components: {
      Calc,
+     TaskList,
      Router
    },
    data () {

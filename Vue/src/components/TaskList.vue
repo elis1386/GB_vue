@@ -6,7 +6,7 @@
             <PaymentForm :id-count="list.length" v-show="formVisible" @getPayment="getPayment" />
         </div>
 
-        <PaymentList :list="activeList"/>
+        <PaymentList :list="newList"/>
         <Pagination :list="list" @choose-page="choosePageHandler"/>
     </div>  
 </div>

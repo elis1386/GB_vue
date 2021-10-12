@@ -40,8 +40,8 @@ export default new Vuex.Store({
                 const result = [].concat(...Object.values(response))
                 commit('setResponseDataNewList', response)
                 commit('setResponseDataNewList2', result)
-                commit('setformDataNewList2', result.slice(0, 5))
-                if (page === 1) commit('setformDataNewList2', response.page1)
+                // commit('setformDataNewList2', result.slice(0, 5))
+                if (page === 1) commit('setformDataNewList2', result.slice(0, 5))
               })
           }
 

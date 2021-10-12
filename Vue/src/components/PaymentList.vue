@@ -13,7 +13,7 @@
         </thead>
         <template>
             <tbody>
-                 <tr v-for="(item,index) in formList2" :key="index + {id}">
+                 <tr v-for="(item,index) in formList2" :key="index">
                   <th scope="row">{{item.id}}</th>
                   <td>{{item.date}}</td>
                   <td>{{item.description}}</td>

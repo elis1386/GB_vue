@@ -1,9 +1,9 @@
 <template>
     <div>
         <form class="container">
-        <input class="input-group mb-3" type="text" v-model="description" placeholder="payment description">
-        <input class="input-group mb-3" type="text" v-model.number="amount" placeholder="payment amount">
-        <input class="input-group mb-3" type="text" v-model="date" placeholder="payment date">
+        <input class="input-group mb-3" type="text" v-model="description">
+        <input class="input-group mb-3" type="text" v-model.number="amount">
+        <input class="input-group mb-3" type="text" v-model="date">
         <button type="button" class="btn btn-primary mb-3"  @click="addNewPayment"> + Add </button>
         </form>
     </div>
@@ -11,6 +11,7 @@
 
 <script>
 import { mapMutations, mapState } from 'vuex'
+
 export default {
     name: 'PaymentForm',
     props: ['idCount'],
@@ -40,8 +41,8 @@ export default {
             description: this.description,
             date: this.date || this.getCurrentDate,
             }   
-            this.addDataToList(data)
-            this.addDataToList2(data)    
+            this.addDataToList2(data)
+            this.addDataToList(data)    
             this.$emit('getPayment', data);
             
             }

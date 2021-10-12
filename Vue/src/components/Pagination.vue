@@ -1,6 +1,6 @@
 <template>
 <nav class="mt-5">
-    <template>
+    <!-- <template> -->
         <ul class="pagination justify-content-center">
          <a class="page-link" href="#" tabindex="-1">Previous</a>
          <div class="page-item" v-for="(item, index) in pages" :key="item" @click="choosePage(index)">
@@ -8,10 +8,9 @@
          </div>
             <a class="page-link" href="#">Next</a>
         </ul>
-    </template>
-    <div @click="clickHandler(index)" v-for="(item,index) in makeArray" :key="index">
-      {{ index }}
-    </div>
+    <!-- </template> -->
+    <!-- <div @click="clickHandler(index)" v-for="(item,index) in makeArray" :key="index">
+    </div> -->
 </nav>
 </template>
 
@@ -30,7 +29,7 @@ export default {
     }
   },
   methods: {
-       ...mapMutations(['newList']),
+    ...mapMutations(['setformDataNewList']),
     choosePage (page) {
       this.$emit('choose-page', page)
     },

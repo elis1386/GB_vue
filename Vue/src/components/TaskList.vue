@@ -6,7 +6,7 @@
             <PaymentForm :id-count="list.length" v-show="formVisible" @getPayment="getPayment" />
         </div>
 
-        <PaymentList :list="activeList"/>
+        <PaymentList :list="newList"/>
         <Pagination :list="list" @choose-page="choosePageHandler"/>
     </div>  
 </div>
@@ -86,18 +86,17 @@ export default {
                 amount: 5320,
             },
             ],
+            page: 1
     }),
     computed: {
         ...mapState(['newList', 'newList2'])
   },
     created () {
         this.fetchData(this.page)
-    // this.activeList = this.list.slice(0, 5)
-    // this.getResponse()
   },
     methods: {
        ...mapActions(['fetchData']),
-       ...mapMutations(['setResponseDataNewList2']),
+       ...mapMutations(['setformDataNewList2']),
         getForm() {
             this.formVisible= !this.formVisible
         },

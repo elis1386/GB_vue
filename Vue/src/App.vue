@@ -15,11 +15,13 @@
 
 <script>
 import Calc from './components/Calc.vue'
+import TaskList from './components/TaskList.vue'
 
 export default {
    name: 'Calculator',
    components: {
-     Calc
+     Calc,
+     TaskList
    },
    data () {
      return {}

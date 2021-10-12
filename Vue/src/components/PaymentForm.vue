@@ -16,8 +16,9 @@ export default {
     props: ['idCount'],
     data(){
         return {
+            id: 0,
             description: '',
-            amount: null,
+            amount: 0,
             date: '',
         }
     },
@@ -40,9 +41,9 @@ export default {
             description: this.description,
             date: this.date || this.getCurrentDate,
             }   
-            this.addDataToList(data)
+            // this.addDataToList(data)
             this.addDataToList2(data)    
-            this.$emit('getPayment', data);
+            // this.$emit('getPayment', data);
             
             }
         }

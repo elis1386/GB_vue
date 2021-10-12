@@ -13,7 +13,7 @@
         </thead>
         <template>
             <tbody>
-                 <tr v-for="(item,index) in formList2" :key="index + 'a'">
+                 <tr v-for="(item,id) in formList2" :key="id">
                   <th scope="row">{{item.id}}</th>
                   <td>{{item.date}}</td>
                   <td>{{item.description}}</td>
@@ -23,7 +23,7 @@
         </template>
          <template>
             <tbody>
-                 <tr v-for="(item,index) in formList" :key="index">
+                 <tr v-for="(item,id) in formList" :key="id">
                   <th scope="row">{{item.id}}</th>
                   <td>{{item.date}}</td>
                   <td>{{item.description}}</td>
@@ -45,7 +45,7 @@ export default {
     name: 'PaymentList',
     props: ['list'],
     computed: {
-    ...mapState(['formList', 'formList2', 'newList'])
+    ...mapState(['formList', 'formList2', 'newList','newList2'])
   }
 }
 </script>

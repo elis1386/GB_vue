@@ -86,6 +86,7 @@ export default {
                 amount: 5320,
             },
             ],
+            page: 1
     }),
     computed: {
         ...mapState(['newList', 'newList2'])
@@ -97,7 +98,7 @@ export default {
   },
     methods: {
        ...mapActions(['fetchData']),
-       ...mapMutations(['setResponseDataNewList2']),
+       ...mapMutations(['setformDataNewList2']),
         getForm() {
             this.formVisible= !this.formVisible
         },

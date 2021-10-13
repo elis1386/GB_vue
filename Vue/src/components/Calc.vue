@@ -3,13 +3,13 @@
   <div id="app">
     <h2 class="text">Calculator</h2>
       
-    <input class="inputarea" v-model.number="operand1">
-    <input class="inputarea" v-model.number="operand2">
+    <input class="inputarea" name="operand1" v-model.number="operand1">
+    <input class="inputarea" name="operand2" v-model.number="operand2">
 
     <p class="error" v-if="error">ERROR</p>
     <h2 class="text">= {{result}}</h2>
 
-    <button class="actions" v-for="item in items" :key="item.value" @click="calcHandler(item.value)">
+    <button class="actions" name="btn" v-for="item in items" :key="item.value" @click="calcHandler(item.value)">
       {{ item.name }}
     </button>
 

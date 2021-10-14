@@ -8,12 +8,14 @@
 
         <PaymentList :list="newList"/>
         <Pagination :list="list" @choose-page="choosePageHandler"/>
+        <EasyPayment2 />
     </div>  
 </div>
 </template>
 
 
 <script>
+import EasyPayment2 from './EasyPayment2.vue'
 import PaymentList from './PaymentList.vue'
 import PaymentForm from './PaymentForm'
 import Pagination from './Pagination.vue'
@@ -24,7 +26,8 @@ export default {
     components: {
         PaymentList, 
         PaymentForm,
-        Pagination
+        Pagination,
+        EasyPayment2
     },
     data: () => ({
             activeList: [],

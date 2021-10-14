@@ -1,8 +1,8 @@
 <template>
 <div id="app">
 
-  <Calc v-if="0"/>
-  <TaskList v-if="0"/>
+  <!-- <Calc v-if="0"/> -->
+  <!-- <TaskList v-if="0"/> -->
   <Router/>
 
 
@@ -10,15 +10,15 @@
 </template>
 
 <script>
-import Calc from './components/Calc.vue'
-import TaskList from './components/TaskList.vue'
+// import Calc from './components/Calc.vue'
+// import TaskList from './components/TaskList.vue'
 import Router from './components/Router.vue'
 
 export default {
    name: 'Calculator',
    components: {
-     Calc,
-     TaskList,
+    //  Calc,
+    //  TaskList,
      Router
    },
    data () {

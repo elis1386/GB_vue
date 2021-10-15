@@ -23,18 +23,6 @@ export default {
             }
            console.log(item)
         },
-        setParams(){
-            if(this.getMatch()){
-                this.date = this.getCurrentDate()
-                this.amount = this.$$route.params?.amount
-                this.description = this.$$route.name
-            }else {
-                this.date = null
-                this.description = null
-                this.amount = null
-            }
-         
-        }    
     }
 }
 

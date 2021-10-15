@@ -4,18 +4,18 @@
         <div class="d-grid gap-2 col-2">
             <button type="button" class="btn btn-success mb-3" v-show="!formVisible" @click="getForm"> + Add new payment</button>
             <PaymentForm :id-count="list.length" v-show="formVisible" @getPayment="getPayment" />
+             <!-- <FastPay /> -->
         </div>
-
         <PaymentList :list="newList"/>
         <Pagination :list="list" @choose-page="choosePageHandler"/>
-        <EasyPayment2 />
+        
     </div>  
 </div>
 </template>
 
 
 <script>
-import EasyPayment2 from './EasyPayment2.vue'
+// import FastPay from './FastPay.vue'
 import PaymentList from './PaymentList.vue'
 import PaymentForm from './PaymentForm'
 import Pagination from './Pagination.vue'
@@ -27,7 +27,7 @@ export default {
         PaymentList, 
         PaymentForm,
         Pagination,
-        EasyPayment2
+        // FastPay,
     },
     data: () => ({
             activeList: [],

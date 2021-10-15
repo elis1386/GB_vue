@@ -5,11 +5,7 @@
             <router-link to="/calc"><a class="btn btn-outline-secondary btn-space" href="#calc" role="button">Calculator</a></router-link>
             <router-link to="/404"><a class="btn btn-outline-secondary btn-space" href="#404">Error</a></router-link>
 
-            <div class="fast-add" v-if="0">
-                <a class="btn  btn-space" @click="addFood">Food for $200</a>
-                <a class="btn  btn-space" @click="addTransport">Transport for $50 </a>
-                <a class="btn  btn-space" @click="addEntertaiment">Entertament for $2000</a>
-            </div>
+            
             <router-view />
         </div>
         <TaskList v-if="page === 'tasklist' "/>

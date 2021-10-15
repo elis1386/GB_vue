@@ -1,23 +1,38 @@
-const categoriesRoutes = [
+const categories = [
    {
        path: '/payment',
        name: 'Payment',
-       component: () => import('../components/EasyPayment.vue')
-   },           
+       component: () => import('../components/TaskList.vue')
+   },   
    {
-       path: '/payment/Food',
-       name: 'PaymentFood',
-       component: () => import('../components/EasyPayment.vue')
-   },      
+    path: '/Food?amount=:amount',
+    name: 'Food',
+    component: () => import('../components/TaskList.vue')
+},         
    {
-       path: '/payment/Transport',
-       name: 'PaymentTransport',
-       component: () => import('../components/EasyPayment.vue')
-   },      
+       path: '/Food',
+       name: 'Food',
+       component: () => import('../components/TaskList.vue')
+   },  
    {
-       path: '/payment/Entertaiment',
-       name: 'PaymentEntertaiment',
-       component: () => import('../components/EasyPayment.vue')
+       path: '/Transport?amount=:amount',
+       name: 'Transport',
+       component: () => import('../components/TaskList.vue')
+},    
+   {
+       path: '/Transport',
+       name: 'Transport',
+       component: () => import('../components/TaskList.vue')
+   }, 
+   {
+       path: '/Entertaiment?amount=:amount',
+       name: 'Entertaiment',
+       component: () => import('../components/TaskList.vue')
+},        
+   {
+       path: '/Entertaiment',
+       name: 'Entertaiment',
+       component: () => import('../components/TaskList.vue')
    },                    
    {
        path: '/404',
@@ -31,4 +46,4 @@ const categoriesRoutes = [
 ]
 
   
-  export default categoriesRoutes
+  export default categories

@@ -24,13 +24,13 @@ it ('input data', () => {
   operand1.setValue('10')
   expect(wrapper.vm.operand1).toBe(10)
 })
-// it ('delete symbol', async () => {
-//   createComponent()
-//   const operand1 = wrapper.find('input[name=operand1]')
-//   await operand1.setValue('10')
-//   await findButtonByText('&larr;').trigger('click')
-//   expect(wrapper.vm.operand1).toBe('1')
-// })
+it ('delete symbol', async () => {
+  createComponent()
+  const operand1 = wrapper.find('input[value=operand1]')
+  await operand1.setValue('10')
+  await findButtonByText('&larr;').trigger('click')
+  expect(wrapper.vm.operand1).toBe('1')
+})
 it('show keyboard', async () => {
   createComponent()
   expect(wrapper.vm.keyVisible).toBe(false)

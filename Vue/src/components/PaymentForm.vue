@@ -30,6 +30,12 @@ export default {
             formVisible: false,
         }
     },
+    watch: {
+       '$rout'() {
+           this.amount = this.$route.params.name
+           this.description = this.$$route?.amount
+       }
+    },
     
     mounted(){
         this.setParams()
@@ -69,7 +75,7 @@ export default {
         setParams(){
             if(this.getMatch()){
                 this.date = this.getCurrentDate()
-                this.amount = this.$$route.params?.amount
+                this.amount = this.$route.params?.amount
                 this.description = this.$$route.name
             }else {
                 this.date = null

@@ -17,9 +17,9 @@ export default {
     },
     methods: {
         linkHandler(item) {
-            const { description: name, params } = item
+            const { description: name, params} = item
             if(this.$route.name !== name){
-                this.$router.push({name, params:params.amount})
+                this.$router.push({name, params})
             }
            console.log(item)
         },

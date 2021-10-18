@@ -1,27 +1,15 @@
 <template>
 <div id="app">
-  <Calc v-if="0"/>
-
-  <TaskList/>
-
-
-
-
-
-
-
+  <Calc/>
 </div>
 </template>
-
 <script>
 import Calc from './components/Calc.vue'
-import TaskList from './components/TaskList.vue'
 
 export default {
    name: 'Calculator',
    components: {
-     Calc,
-     TaskList
+     Calc
    },
    data () {
      return {}
@@ -31,6 +19,9 @@ export default {
      addNewPayment(data) {
        this.paymentsList = [...this.paymentsList,data]
         },
+   },
+   created () {
+  this.$router.push({ name: 'TaskList' })
    },
 }
 </script>

@@ -21,8 +21,9 @@ export default {
             if(this.$route.name !== name){
                 this.$router.push({name, params})
             }
-           console.log(item)
+           
         },
+        
     }
 }
 

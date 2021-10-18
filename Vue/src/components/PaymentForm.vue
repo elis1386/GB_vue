@@ -5,7 +5,7 @@
         <input class="input-group mb-3" type="text" v-model.number="amount" placeholder="payment amount">
         <input class="input-group mb-3" type="text" v-model="date" placeholder="payment date">
         <FastPay />
-        <button type="button" v-show="!isEmpty" class="btn btn-primary mb-3"  @click="addNewPayment"> + Add </button>
+        <button type="button"  class="btn btn-primary mb-3"  @click="addNewPayment"> + Add </button>
         </form>
     </div>
 </template>
@@ -27,7 +27,7 @@ export default {
             description: '',
             amount: 0,
             date: '',
-            formVisible: false,
+            formVisible: true,
         }
     },
     watch: {
@@ -70,7 +70,7 @@ export default {
             }  
             this.addDataToList2(data) 
             this.setParams() 
-            this.formVisible = false;   
+            this.formVisible = false
             },
         setParams(){
             if(this.getMatch()){

@@ -1,10 +1,11 @@
 <template>
     <div>
         <div class="container">
+          <div class="links">
             <router-link to="/taskList"><a class="btn btn-outline-secondary btn-space " href="#tasklist" role="button">TaskList</a></router-link>
             <router-link to="/calc"><a class="btn btn-outline-secondary btn-space" href="#calc" role="button">Calculator</a></router-link>
             <router-link to="/404"><a class="btn btn-outline-secondary btn-space" href="#404">Error</a></router-link>
-
+          </div>
             
             <router-view />
         </div>
@@ -85,6 +86,10 @@ export default {
 
 
 <style scoped>
+.links {
+  display: flex;
+  align-items: flex-start;
+}
 .btn-space {
     margin-right: 10px;
 }

@@ -3,6 +3,7 @@ import App from './App.vue'
 import TaskList from './components/TaskList'
 import store from './store'
 import router from './router'
+import vuetify from './plugins/vuetify'
 
 
 
@@ -12,6 +13,7 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-  store, 
-  render: h => h(App),
+  store,
+  vuetify,
+  render: h => h(App)
 }).$mount('#app')

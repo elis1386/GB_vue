@@ -4,8 +4,6 @@
             <router-link to="/taskList"><a class="btn btn-outline-secondary btn-space " href="#tasklist" role="button">TaskList</a></router-link>
             <router-link to="/calc"><a class="btn btn-outline-secondary btn-space" href="#calc" role="button">Calculator</a></router-link>
             <router-link to="/404"><a class="btn btn-outline-secondary btn-space" href="#404">Error</a></router-link>
-
-            
             <router-view />
         </div>
         <TaskList v-if="page === 'tasklist' "/>

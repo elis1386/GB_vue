@@ -26,9 +26,9 @@ it ('input data', () => {
 })
 it ('delete symbol', async () => {
   createComponent()
-  const operand1 = wrapper.find('[data-test=operand1]')
+  const operand1 = wrapper.find('input[value=operand1]')
   await operand1.setValue('7')
-  await findButtonByText(`&larr;`).trigger('click')
+  await wrapper.find('button[name=delete]').trigger('click')
   expect(wrapper.vm.operand1).toBe('0')
 })
 it('show keyboard', async () => {

@@ -3,8 +3,8 @@
   <div id="app">
     <h2 class="text">Calculator</h2>
       
-    <input class="inputarea" name="operand1" data-test="operand1" v-model.number="operand1">
-    <input class="inputarea" name="operand2" data-test="operand2" v-model.number="operand2">
+    <input class="inputarea" name="operand1"  v-model.number="operand1">
+    <input class="inputarea" name="operand2"  v-model.number="operand2">
 
     <p class="error" v-if="error">ERROR</p>
     <h2 class="text">= {{result}}</h2>
@@ -22,10 +22,10 @@
     <button class="numbers" v-for="number in numbers" :key="number" @click="keyBoard(number)">
       {{ number }}
     </button>
-    <button class="numbers" @click="deleteNumber()" > &larr; </button>
+    <button class="numbers" name="delete" @click="deleteNumber()" > &larr; </button>
 
     <div class="radio">
-    <input type="radio" id="one" value="operand1" v-model="picked">
+    <input type="radio" id="one" value="operand1"   v-model="picked">
     <label for="one">First</label>
     <input type="radio" id="two" value="operand2" v-model="picked">
     <label for="two">Second</label>  

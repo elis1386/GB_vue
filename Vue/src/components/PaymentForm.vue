@@ -31,9 +31,9 @@ export default {
         }
     },
     watch: {
-       '$rout'() {
-           this.amount = this.getRouteParams.name
-           this.description = this.getRouteParams.amount
+       '$route'() {
+           this.description = this.getRouteParams.name
+           this.params = this.getRouteParams.params.amount
        }
     },
     
@@ -48,7 +48,7 @@ export default {
         getRouteParams(){
             return {
                 name: this.$route.name,
-                params: this.$route.params
+                params: this.$route.params.amount
             }
         },
         isEmpty(){
@@ -71,12 +71,13 @@ export default {
             this.addDataToList2(data) 
             this.setParams() 
             this.formVisible = false
+            console.log(data)
             },
         setParams(){
             if(this.getMatch()){
                 this.date = this.getCurrentDate()
                 this.amount = this.$route.params?.amount
-                this.description = this.$$route.name
+                this.description = this.$route.name
             }else {
                 this.date = null
                 this.description = null

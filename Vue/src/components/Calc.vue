@@ -14,7 +14,7 @@
     </button>
 
     <div class="checkbox">
-      <input type="checkbox" id="checkbox" v-model="keyVisible">
+      <input type="checkbox" id="checkbox" v-model="keyVisible">&nbsp;
       <label class="text" for="checkbox">Отобразить экранную клавиатуру</label>
     </div> 
     
@@ -25,10 +25,10 @@
     <button class="numbers" @click="deleteNumber()" > &larr; </button>
 
     <div class="radio">
-    <input type="radio" id="one" value="operand1" v-model="picked">
-    <label for="one">operand1</label>
-    <input type="radio" id="two" value="operand2" v-model="picked">
-    <label for="two">operand2</label>  
+    <input type="radio" id="one" value="operand1" v-model="picked">&nbsp;
+    <label for="one">First</label>&nbsp;&nbsp;
+    <input type="radio" id="two" value="operand2" v-model="picked">&nbsp;
+    <label for="two">Second</label>  
     </div>
     </div>  
        

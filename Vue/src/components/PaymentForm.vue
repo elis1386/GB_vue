@@ -1,50 +1,93 @@
 <template>
     <div>
-        <div class="container" >
+        <form class="container">
         <input class="input-group mb-3" type="text" v-model="description" placeholder="payment description">
         <input class="input-group mb-3" type="text" v-model.number="amount" placeholder="payment amount">
         <input class="input-group mb-3" type="text" v-model="date" placeholder="payment date">
-        <button type="button" class="btn btn-primary mb-3" @click="addNewPayment"> + Add new </button>
-        </div>
+        <FastPay />
+        <button type="button"  class="btn btn-primary mb-3"  @click="addNewPayment"> + Add </button>
+        </form>
     </div>
 </template>
 
 <script>
+import {getCurrentDate} from '../utils'
+import FastPay from './FastPay.vue'
+import { mapMutations, mapState } from 'vuex'
+import { fastBtns } from '../assets/selects'
 export default {
+    components:{
+        FastPay
+    },
     name: 'PaymentForm',
+    props: ['idCount'],
     data(){
         return {
+            id: 0,
             description: '',
-            amount: null,
+            amount: 0,
             date: '',
-            formVisibl: false,
+            formVisible: true,
         }
     },
-    props: {
-       list: {
-           type: Array,
-           default: () => []
+    watch: {
+       '$route'() {
+           this.description = this.getRouteParams.name
+           this.params = this.getRouteParams.params.amount
        }
     },
-    methods: {
-        addNewPayment() {
-            let newId = 0
-            this.list.map(function(element){
-                if (element.id > newId) newId = element.id;
-            });
-            if ((this.amount !== 0 ) && (this.date !== "") && (this.description !=="")){
-            const data = {
-                id: newId + 1,
-                description: this.description,
-                amount: this.amount,
-                date: this.date,
-            }        
-            this.$emit('getPayment', data);
+    
+    mounted(){
+        this.setParams()
+    },    
+    computed:{
+        ...mapState(['newList2']),
+        list(){
+            return fastBtns
+        },
+        getRouteParams(){
+            return {
+                name: this.$route.name,
+                params: this.$route.params.amount
             }
+        },
+        isEmpty(){
+            return this.date && this.amount && this.description
         }
-    }
+        },
+    methods: {
+        getMatch(){
+            return this.list.some(el => el.description === this.$route.name)
+        },
+        getCurrentDate,
+        ...mapMutations(['addDataToList', 'addDataToList2']),
+        addNewPayment() {
+            const data = {
+            id: this.newList2.length + 1,
+            amount: this.amount,
+            description: this.description,
+            date: this.date || this.getCurrentDate(),
+            }  
+            this.addDataToList2(data) 
+            this.setParams() 
+            this.formVisible = false
+            console.log(data)
+            },
+        setParams(){
+            if(this.getMatch()){
+                this.date = this.getCurrentDate()
+                this.amount = this.$route.params?.amount
+                this.description = this.$route.name
+            }else {
+                this.date = null
+                this.description = null
+                this.amount = null
+            }
+         
+        }    
+        },
+    
 }
-
 </script>
 
 <style scoped>
@@ -66,37 +109,3 @@ export default {
 
 
 
-{
-    //         fetch('http://localhost:8080/', {
-    //             method: 'POST',
-    //             headers: { "Content-Type": "application/json" },
-    //             body: JSON.stringify({
-    //                 id: this.id,
-    //                 description: this.description,
-    //                 amount: this.amount,
-    //                 date: this.date 
-    //         })
-    //         .then(response => {
-    //             if (!response.ok) {
-    //             throw new Error(response.statusText);
-    //         }
-    //             return response.json();
-    //         })
-    //         .catch(error => {
-    //         console.log(error)
-    //     })
-    //         this.$emit('addNewPayment',data)
-    //     }
-    // }
-
- // let addId = 0
-            // this.list.map(function(element){
-            //     if (element.id > addId) addId = element.id;
-            // })
-            // if ((this.value !== 0 ) && (this.data !== "") && (this.category !=="")){
-            // const data = {
-            //     id: addId + 1,
-            //     description: this.description,
-            //     amount: this.amount,
-            //     date: this.date 
-            // }

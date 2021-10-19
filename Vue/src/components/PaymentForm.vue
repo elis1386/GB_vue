@@ -32,8 +32,8 @@ export default {
     },
     watch: {
        '$rout'() {
-           this.amount = this.$route.params.name
-           this.description = this.$$route?.amount
+           this.amount = this.getRouteParams.name
+           this.description = this.getRouteParams.amount
        }
     },
     

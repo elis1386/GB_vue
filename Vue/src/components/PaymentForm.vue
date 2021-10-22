@@ -33,7 +33,7 @@ export default {
     watch: {
        '$rout'() {
            this.amount = this.$route.params.name
-           this.description = this.$$route?.amount
+           this.description = this.$route?.amount
        }
     },
     
@@ -48,7 +48,7 @@ export default {
         getRouteParams(){
             return {
                 name: this.$route.name,
-                params: this.$route.params
+                params: this.$route.params.amount
             }
         },
         isEmpty(){
@@ -76,7 +76,7 @@ export default {
             if(this.getMatch()){
                 this.date = this.getCurrentDate()
                 this.amount = this.$route.params?.amount
-                this.description = this.$$route.name
+                this.description = this.$route.name
             }else {
                 this.date = null
                 this.description = null

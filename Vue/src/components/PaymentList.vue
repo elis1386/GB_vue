@@ -9,6 +9,7 @@
               <th scope="col">Date</th>
               <th scope="col">Description</th>
               <th scope="col">Amount</th>
+              <th scope="col">Edite</th>
              </tr>
         </thead>
         <template>
@@ -18,20 +19,11 @@
                   <td>{{item.date}}</td>
                   <td>{{item.description}}</td>
                   <td>{{item.amount}}</td>
+                  <td>:</td>
                 </tr>
             </tbody>
         </template>
-         <template>
-            <tbody>
-                 <tr v-for="(item,id) in formList" :key="id">
-                  <th scope="row">{{item.id}}</th>
-                  <td>{{item.date}}</td>
-                  <td>{{item.description}}</td>
-                  <td>{{item.amount}}</td>
-                </tr>
-            </tbody>
-        </template>
-
+        
 </table>
     </div>
   </div>

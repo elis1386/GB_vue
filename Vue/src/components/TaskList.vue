@@ -1,39 +1,36 @@
 <template>
-    <div>
+<div>
     <div class="container ">
-    <div class="d-grid gap-2 col-2">
-       <button type="button" class="btn btn-success mb-3" v-show="!formVisibl" @click="getForm"> + Add new payment</button>
-       <PaymentForm :list="responseData" v-show="formVisibl" @getPayment="getPayment" />
-    </div>
+        <div class="d-grid gap-2 col-2">
+            <button type="button" class="btn btn-success mb-3" v-show="!formVisible" @click="getForm"> + Add new payment</button>
+            <PaymentForm :id-count="list.length" v-show="formVisible" @getPayment="getPayment" />
+        </div>
+
+        <PaymentList :list="newList"/>
+        <Pagination :list="list" @choose-page="choosePageHandler"/>
+    </div>  
 </div>
-  <PaymentList :list="responseData" />
-
-  
-
- 
-
-
-
-
-
-
-
-    </div>
 </template>
 
 
 <script>
 import PaymentList from './PaymentList.vue'
 import PaymentForm from './PaymentForm'
+import Pagination from './Pagination.vue'
+import {mapActions, mapState, mapMutations} from 'vuex' 
 
 export default {
     name: 'TaskList',
     components: {
-        PaymentList, PaymentForm
+        PaymentList, 
+        PaymentForm,
+        Pagination
     },
-    data() {
-        return {
-            responseData: [ 
+    data: () => ({
+            activeList: [],
+            count: 5,
+            formVisible: false,
+            list: [ 
             {   
                 id: 1,
                 date:'28.03.2020',
@@ -66,27 +63,62 @@ export default {
             },
             {
                 id: 6,
-                date:'18.03.2020',
+                date:'15.04.2020',
                 description: 'Food',
-                amount: 540,
+                amount: 320,
+            },
+            {
+                id: 7,
+                date:'27.04.2020',
+                description: 'Clother',
+                amount: 1200,
+            },
+            {
+                id: 8,
+                date:'17.05.2020',
+                description: 'Sport',
+                amount: 300,
+            },
+            {
+                id: 9,
+                date:'12.06.2020',
+                description: 'Food',
+                amount: 5320,
             },
             ],
-            formVisibl: false,
-        }
-    },
+            page: 1
+    }),
+    computed: {
+        ...mapState(['newList', 'newList2'])
+  },
+    created () {
+        this.fetchData(this.page)
+  },
     methods: {
+       ...mapActions(['fetchData']),
+       ...mapMutations(['setformDataNewList2']),
         getForm() {
-            this.formVisibl= !this.formVisibl
+            this.formVisible= !this.formVisible
         },
         getPayment(data) {
-            this.responseData = [...this.responseData,data]
-        }
+            this.list = [...this.list,data]
+            this.formVisible = false;
+        },
+        
+        choosePageHandler (page) {
+            const startNum = page * this.count
+            const lastNum = startNum + this.count
+            this.setformDataNewList2(this.newList2.slice(startNum, lastNum))
     }
+    },
+    
 }
 </script>
 
 <style scoped>
-
+.btn{
+    width: 100%;
+}
 </style>
 
 

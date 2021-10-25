@@ -3,18 +3,18 @@
   <div id="app">
     <h2 class="text">Calculator</h2>
       
-    <input class="inputarea" v-model.number="operand1">
-    <input class="inputarea" v-model.number="operand2">
+    <input class="inputarea" name="operand1"  v-model.number="operand1">
+    <input class="inputarea" name="operand2"  v-model.number="operand2">
 
     <p class="error" v-if="error">ERROR</p>
     <h2 class="text">= {{result}}</h2>
 
-    <button class="actions" v-for="item in items" :key="item.value" @click="calcHandler(item.value)">
+    <button class="actions" name="btn" v-for="item in items" :key="item.value" @click="calcHandler(item.value)">
       {{ item.name }}
     </button>
 
     <div class="checkbox">
-      <input type="checkbox" id="checkbox" v-model="keyVisible">
+      <input type="checkbox" id="checkbox" v-model="keyVisible"> &nbsp;
       <label class="text" for="checkbox">Отобразить экранную клавиатуру</label>
     </div> 
     
@@ -22,13 +22,13 @@
     <button class="numbers" v-for="number in numbers" :key="number" @click="keyBoard(number)">
       {{ number }}
     </button>
-    <button class="numbers" @click="deleteNumber()" > &larr; </button>
+    <button class="numbers" name="delete" @click="deleteNumber()" > &larr; </button>
 
     <div class="radio">
-    <input type="radio" id="one" value="operand1" v-model="picked">
-    <label for="one">operand1</label>
+    <input type="radio" id="one" value="operand1"   v-model="picked">
+    <label for="one">First</label>
     <input type="radio" id="two" value="operand2" v-model="picked">
-    <label for="two">operand2</label>  
+    <label for="two">Second</label>  
     </div>
     </div>  
        
